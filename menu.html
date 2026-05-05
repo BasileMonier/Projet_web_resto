@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu — Bistrot Le Rétro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Bistrot Le Rétro</div>
+      <button class="burger" id="burger">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="reservation.html">Réservation</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="menu-hero">
+      <h1>Notre Carte</h1>
+      <p>Des produits frais, locaux, de saison.</p>
+    </section>
+
+    <!-- FILTRES -->
+    <section class="filtres">
+      <div class="filtres-categories">
+        <button class="filtre-btn actif" data-categorie="tout">Tout</button>
+        <button class="filtre-btn" data-categorie="entree">Entrées</button>
+        <button class="filtre-btn" data-categorie="plat">Plats</button>
+        <button class="filtre-btn" data-categorie="dessert">Desserts</button>
+        <button class="filtre-btn" data-categorie="boisson">Boissons</button>
+      </div>
+      <div class="filtres-tags">
+        <label>
+          <input type="checkbox" id="filtre-vege">  Végétarien
+        </label>
+        <label>
+          <input type="checkbox" id="filtre-gluten">  Sans gluten
+        </label>
+      </div>
+      <p class="compteur" id="compteur">20 plats correspondent à votre sélection</p>
+    </section>
+
+    <!-- LISTE DES PLATS -->
+    <section class="liste-plats" id="liste-plats">
+
+      <!-- ENTRÉES -->
+      <article class="plat" data-categorie="entree" data-vege="true" data-gluten="false">
+        <h3>Soupe à l'oignon <span class="tag vege"></span></h3>
+        <p>Bouillon maison, oignons caramélisés, croûton gratiné au comté.</p>
+        <p class="prix">9,50 €</p>
+      </article>
+
+      <article class="plat" data-categorie="entree" data-vege="false" data-gluten="true">
+        <h3>Tartare de saumon <span class="tag gluten"></span></h3>
+        <p>Saumon frais, avocat, citron vert, coriandre.</p>
+        <p class="prix">13,00 €</p>
+      </article>
+
+      <article class="plat" data-categorie="entree" data-vege="true" data-gluten="true">
+        <h3>Salade de chèvre chaud <span class="tag vege"></span><span class="tag gluten"></span></h3>
+        <p>Mesclun, tomates cerises, noix, miel, chèvre grillé.</p>
+        <p class="prix">11,00 €</p>
+      </article>
+
+      <article class="plat" data-categorie="entree" data-vege="false" data-gluten="false">
+        <h3>Terrine de campagne</h3>
+        <p>Terrine maison, cornichons, pain grillé au levain.</p>
+        <p class="prix">10,00 €</p>
+      </article>
+
+      <article class="plat" data-categorie="entree" data-vege="false" data-gluten="true">
+        <h3>Carpaccio de bœuf <span class="tag gluten"></span></h3>
+        <p>Bœuf tranché fin, parmesan, roquette, huile d'olive, câpres.</p>
+        <p class="prix">14,00 €</p>
+      </article>
+
+      <!-- PLATS -->
+      <article class="plat" data-categorie="plat" data-vege="false" data-gluten="false">
+        <h3>Entrecôte frites</h3>
+        <p>Entrecôte Black Angus 300g, frites maison, sauce au poivre.</p>
+        <p class="prix">26,00 €</p>
+      </article>
+
+      <article class="plat" data-categorie="plat" data-vege="false" data-gluten="true">
+        <h3>Dos de cabillaud <span class="tag gluten"></span></h3>
+        <p>Cabillaud rôti, écrasé de pommes de terre, beurre blanc.</p>
+        <p class="prix">22,00 €</p>
+      </article>
+
+      <article class="plat" data-categorie="plat" data-vege="true" data-gluten="false">
+        <h3>Risotto aux champignons <span class="tag vege"></span></h3>
+        <p>Risotto crémeux, champignons de Paris, cèpes, parmesan.</p>
+        <p class="prix">18,00 €</p>
+      </article>
+
+      <article class="plat" data-categorie="plat" data-vege="false" data-gluten="false">
+        <h3>Confit de canard</h3>
+        <p>Cuisse de canard confite, sarladaises, salade verte.</p>
+        <p class="prix">24,00 €</p>
+      </article>
+
+      <article class="plat" data-categorie="plat" data-vege="false" data-gluten="false">
+        <h3>Magret de canard</h3>
+        <p>Magret rosé, sauce aux cerises, gratin dauphinois.</p>
+        <p class="prix">25,00 €</p>
+      </article>
+
+      <article class="plat" data-categorie="plat" data-vege="true" data-gluten="true">
+        <h3>Curry de légumes <span class="tag vege"></span><span class="tag gluten">🌾</span></h3>
+        <p>Légumes de saison, lait de coco, riz basmati, coriandre.</p>
+        <p class="prix">16,00 €</p>
+      </article>
+
+      <article class="plat" data-categorie="plat" data-vege="false" data-gluten="false">
+        <h3>Steak haché maison</h3>
+        <p>Haché 180g, frites maison, œuf à cheval, ketchup maison.</p>
+        <p class="prix">17,00 €</p>
+      </article>
+
+      <article class="plat" data-categorie="plat" data-vege="false" data-gluten="false">
+        <h3>Poulet rôti du dimanche</h3>
+        <p>Poulet fermier, jus de rôti, haricots verts, pommes grenaille.</p>
+        <p class="prix">20,00 €</p>
+      </article>
+
+      <article class="plat" data-categorie="plat" data-vege="false" data-gluten="true">
+        <h3>Pavé de saumon <span class="tag gluten"></span></h3>
+        <p>Saumon Label Rouge, quinoa, épinards sautés, citron.</p>
+        <p class="prix">21,00 €</p>
+      </article>
+
+      <!-- DESSERTS -->
+      <article class="plat" data-categorie="dessert" data-vege="true" data-gluten="false">
+        <h3>Crème brûlée <span class="tag vege"></span></h3>
+        <p>Crème vanillée, caramel craquant à la cassonade.</p>
+        <p class="prix">8,00 €</p>
+      </article>
+
+      <article class="plat" data-categorie="dessert" data-vege="true" data-gluten="false">
+        <h3>Mousse au chocolat <span class="tag vege"></span></h3>
+        <p>Chocolat noir 70%, chantilly maison.</p>
+        <p class="prix">7,50 €</p>
+      </article>
+
+      <article class="plat" data-categorie="dessert" data-vege="true" data-gluten="false">
+        <h3>Tarte Tatin <span class="tag vege"></span></h3>
+        <p>Pommes caramélisées, pâte feuilletée, crème fraîche.</p>
+        <p class="prix">9,00 €</p>
+      </article>
+
+      <article class="plat" data-categorie="dessert" data-vege="true" data-gluten="false">
+        <h3>Île flottante <span class="tag vege"></span></h3>
+        <p>Blancs en neige, crème anglaise, caramel, pralin.</p>
+        <p class="prix">7,00 €</p>
+      </article>
+
+      <!-- BOISSONS -->
+      <article class="plat" data-categorie="boisson" data-vege="true" data-gluten="true">
+        <h3>Eau minérale <span class="tag vege"></span><span class="tag gluten">🌾</span></h3>
+        <p>Plate ou gazeuse, 50cl.</p>
+        <p class="prix">2,50 €</p>
+      </article>
+
+      <article class="plat" data-categorie="boisson" data-vege="true" data-gluten="true">
+        <h3>Café / Thé <span class="tag vege"></span><span class="tag gluten">🌾</span></h3>
+        <p>Café expresso, noisette, ou thé au choix.</p>
+        <p class="prix">3,00 €</p>
+      </article>
+
+      <article class="plat" data-categorie="boisson" data-vege="true" data-gluten="true">
+        <h3>Jus de fruits frais <span class="tag vege"></span><span class="tag gluten">🌾</span></h3>
+        <p>Orange, citron ou ananas, pressé à la commande.</p>
+        <p class="prix">4,00 €</p>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>Lundi fermé — Mar-Dim : 12h-14h30 / 19h-22h30</p>
+    <p>12 rue du Général de Gaulle, Lille — 03 20 00 00 00</p>
+    <p>© 2026 Bistrot Le Rétro</p>
+  </footer>
+
+  <script src="js/menu.js"></script>
+</body>
+</html>
