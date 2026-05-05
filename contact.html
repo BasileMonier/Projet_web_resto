@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Rétro – Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-main">Le Rétro</span>
+      <span class="logo-sub">Néo-Bistrot Lillois</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="menu.html">La Carte</a></li>
+      <li><a href="galerie.html">Galerie</a></li>
+      <li><a href="reservation.html">Réservation</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+    <button id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <nav id="mobile-menu">
+    <a href="index.html">Accueil</a>
+    <a href="menu.html">La Carte</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="reservation.html">Réservation</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main class="contact-container">
+    <section class="contact-info">
+      <h2 class="section-title">Nous trouver</h2>
+      <p><strong>Adresse :</strong> 12 rue du Vieux-Marché, 59000 Lille</p>
+      <p><strong>Téléphone :</strong> <a href="tel:+33320123456">03 20 12 34 56</a></p>
+      <p><strong>Email :</strong> <a href="mailto:contact@bistrot-retro.fr">contact@bistrot-retro.fr</a></p>
+
+      <h3 style="margin-top:2rem;">Horaires d’ouverture</h3>
+      <table>
+        <thead><tr><th>Jour</th><th>Midi</th><th>Soir</th></tr></thead>
+        <tbody>
+          <tr><td>Lundi</td><td colspan="2">Fermé</td></tr>
+          <tr><td>Mardi</td><td>12h00 - 14h30</td><td>19h00 - 22h30</td></tr>
+          <tr><td>Mercredi</td><td>12h00 - 14h30</td><td>19h00 - 22h30</td></tr>
+          <tr><td>Jeudi</td><td>12h00 - 14h30</td><td>19h00 - 22h30</td></tr>
+          <tr><td>Vendredi</td><td>12h00 - 14h30</td><td>19h00 - 22h30</td></tr>
+          <tr><td>Samedi</td><td>12h00 - 15h</td><td>19h00 - 23h</td></tr>
+          <tr><td>Dimanche</td><td colspan="2">Brunch 12h00 - 15h</td></tr>
+        </tbody>
+      </table>
+
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2529.975374977557!2d3.062615315738463!3d50.63697597950112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2d58979c2b183%3A0x40b693c4099a565!2sVieille%20Bourse!5e0!3m2!1sfr!2sfr!4v1672531200000" allowfullscreen="" loading="lazy" title="Plan d'accès"></iframe>
+      </div>
+    </section>
+
+    <section class="contact-form">
+      <h2 class="section-title">Envoyez-nous un message</h2>
+      <form id="contactForm" action="#" method="post">
+        <div class="form-group">
+          <label for="c-nom">Nom *</label>
+          <input type="text" id="c-nom" name="nom" required>
+        </div>
+        <div class="form-group">
+          <label for="c-email">Email *</label>
+          <input type="email" id="c-email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="c-message">Message *</label>
+          <textarea id="c-message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn">Envoyer</button>
+      </form>
+      <p id="contactFeedback" style="margin-top:1rem; color: var(--sage);"></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-main serif" style="font-style:italic;color:#fff;">Le Rétro</span>
+        <span class="logo-sub">Néo-Bistrot Lillois</span>
+        <p>12 rue du Vieux-Marché, 59000 Lille</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Bistrot Le Rétro</span></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('contactFeedback').textContent = 'Merci ! Votre message a bien été envoyé.';
+      this.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Rétro – Réservation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-main">Le Rétro</span>
+      <span class="logo-sub">Néo-Bistrot Lillois</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="menu.html">La Carte</a></li>
+      <li><a href="galerie.html">Galerie</a></li>
+      <li><a href="reservation.html">Réservation</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+    <button id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <nav id="mobile-menu">
+    <a href="index.html">Accueil</a>
+    <a href="menu.html">La Carte</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="reservation.html">Réservation</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main class="form-container">
+    <h1 class="section-title" style="text-align:center; margin-bottom:1.5rem;">Réserver une table</h1>
+    <form id="reservationForm" novalidate>
+      <div class="form-group">
+        <label for="nom">Nom *</label>
+        <input type="text" id="nom" name="nom" required placeholder="Votre nom">
+        <div class="error-message" id="error-nom"></div>
+      </div>
+      <div class="form-group">
+        <label for="prenom">Prénom *</label>
+        <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom">
+        <div class="error-message" id="error-prenom"></div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required placeholder="exemple@domaine.com">
+        <div class="error-message" id="error-email"></div>
+      </div>
+      <div class="form-group">
+        <label for="tel">Téléphone</label>
+        <input type="tel" id="tel" name="tel" pattern="[0-9]{10}" placeholder="0612345678">
+        <div class="error-message" id="error-tel"></div>
+      </div>
+      <div class="form-group">
+        <label for="date">Date *</label>
+        <input type="date" id="date" name="date" required>
+        <div class="error-message" id="error-date"></div>
+      </div>
+      <div class="form-group">
+        <label for="heure">Heure *</label>
+        <select id="heure" name="heure" required>
+          <option value="">Choisir un créneau</option>
+          <option value="12:00">12:00</option>
+          <option value="12:30">12:30</option>
+          <option value="13:00">13:00</option>
+          <option value="19:00">19:00</option>
+          <option value="19:30">19:30</option>
+          <option value="20:00">20:00</option>
+          <option value="20:30">20:30</option>
+        </select>
+        <div class="error-message" id="error-heure"></div>
+      </div>
+      <div class="form-group">
+        <label for="personnes">Nombre de personnes *</label>
+        <input type="number" id="personnes" name="personnes" min="1" max="12" required placeholder="1 à 12">
+        <div class="error-message" id="error-personnes"></div>
+      </div>
+      <div class="form-group">
+        <label for="message">Message (optionnel)</label>
+        <textarea id="message" name="message" rows="3" placeholder="Allergies, occasion spéciale..."></textarea>
+      </div>
+      <button type="submit" class="btn" style="width:100%;">Confirmer la réservation</button>
+    </form>
+    <div class="confirmation" id="confirmationMsg"></div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-main serif" style="font-style:italic;color:#fff;">Le Rétro</span>
+        <span class="logo-sub">Néo-Bistrot Lillois</span>
+        <p>12 rue du Vieux-Marché, 59000 Lille</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Bistrot Le Rétro</span></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    const dateInput = document.getElementById('date');
+    const today = new Date();
+    const minStr = today.toISOString().split('T')[0];
+    dateInput.setAttribute('min', minStr);
+
+    const maxDate = new Date();
+    maxDate.setDate(maxDate.getDate() + 60);
+    dateInput.setAttribute('max', maxDate.toISOString().split('T')[0]);
+
+    function setError(field, msg) {
+      document.getElementById(`error-${field}`).textContent = msg;
+    }
+
+    function clearErrors() {
+      ['nom','prenom','email','tel','date','heure','personnes'].forEach(f => setError(f, ''));
+    }
+
+    document.getElementById('reservationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      clearErrors();
+      let valid = true;
+
+      const nom = document.getElementById('nom').value.trim();
+      const prenom = document.getElementById('prenom').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const tel = document.getElementById('tel').value.trim();
+      const dateVal = dateInput.value;
+      const heure = document.getElementById('heure').value;
+      const personnes = parseInt(document.getElementById('personnes').value, 10);
+
+      if (!nom) { setError('nom','Requis'); valid = false; }
+      if (!prenom) { setError('prenom','Requis'); valid = false; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setError('email','Email invalide'); valid = false; }
+      if (tel && !/^[0-9]{10}$/.test(tel)) { setError('tel','10 chiffres attendus'); valid = false; }
+
+      if (!dateVal) { setError('date','Requis'); valid = false; }
+      else {
+        const selected = new Date(dateVal + 'T00:00:00');
+        const day = selected.getDay(); // 1 = lundi
+        if (day === 1) { setError('date','Fermé le lundi'); valid = false; }
+        if (selected < new Date(minStr + 'T00:00:00')) { setError('date','Date déjà passée'); valid = false; }
+        if (selected > new Date(maxDate.toISOString().split('T')[0] + 'T00:00:00')) { setError('date','Réservation max 60 jours à l\'avance'); valid = false; }
+      }
+
+      if (!heure) { setError('heure','Créneau requis'); valid = false; }
+      if (isNaN(personnes) || personnes < 1 || personnes > 12) { setError('personnes','Entre 1 et 12'); valid = false; }
+
+      if (valid) {
+        const dateFr = new Date(dateVal + 'T00:00:00').toLocaleDateString('fr-FR', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+        document.getElementById('confirmationMsg').innerHTML = `<p>✅ Réservation enregistrée pour le ${dateFr} à ${heure} pour ${personnes} personne(s).</p><p>À bientôt au Bistrot Le Rétro !</p>`;
+        document.getElementById('confirmationMsg').classList.add('active');
+        document.getElementById('reservationForm').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
