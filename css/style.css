@@ -968,9 +968,7 @@ footer {
   opacity: .75;
 }
 
-/* ------------------------------
-   15. MEDIA QUERIES (mobile-first)
-   ------------------------------ */
+
 @media (max-width: 768px) {
   .nav-links {
     display: none;
