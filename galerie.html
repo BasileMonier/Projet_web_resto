@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Rétro – Galerie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-main">Le Rétro</span>
+      <span class="logo-sub">Néo-Bistrot Lillois</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="menu.html">La Carte</a></li>
+      <li><a href="galerie.html">Galerie</a></li>
+      <li><a href="reservation.html">Réservation</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+    <button id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <nav id="mobile-menu">
+    <a href="index.html">Accueil</a>
+    <a href="menu.html">La Carte</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="reservation.html">Réservation</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main class="galery-container">
+    <h1 class="section-title" style="text-align:center; margin-bottom:2rem;">Galerie photo</h1>
+    <div class="gallery-grid" id="galleryGrid">
+  <div class="gallery-item" data-full="img/galerie/01.jpg" data-alt="Bistrot Perla'Bul"><img src="img/galerie/01.jpg" alt="Bistrot Perla'Bul" loading="lazy"></div>
+  <div class="gallery-item" data-full="img/galerie/02.jpg" data-alt="Bistrot Perla'Bul"><img src="img/galerie/02.jpg" alt="Bistrot Perla'Bul" loading="lazy"></div>
+  <div class="gallery-item" data-full="img/galerie/03.jpg" data-alt="Bistrot Perla'Bul"><img src="img/galerie/03.jpg" alt="Bistrot Perla'Bul" loading="lazy"></div>
+  <div class="gallery-item" data-full="img/galerie/04.jpg" data-alt="Bistrot Perla'Bul"><img src="img/galerie/04.jpg" alt="Bistrot Perla'Bul" loading="lazy"></div>
+  <div class="gallery-item" data-full="img/galerie/05.jpg" data-alt="Bistrot Perla'Bul"><img src="img/galerie/05.jpg" alt="Bistrot Perla'Bul" loading="lazy"></div>
+  <div class="gallery-item" data-full="img/galerie/06.jpg" data-alt="Bistrot Perla'Bul"><img src="img/galerie/06.jpg" alt="Bistrot Perla'Bul" loading="lazy"></div>
+  <div class="gallery-item" data-full="img/galerie/07.jpg" data-alt="Bistrot Perla'Bul"><img src="img/galerie/07.jpg" alt="Bistrot Perla'Bul" loading="lazy"></div>
+  <div class="gallery-item" data-full="img/galerie/08.jpg" data-alt="Bistrot Perla'Bul"><img src="img/galerie/08.jpg" alt="Bistrot Perla'Bul" loading="lazy"></div>
+  <div class="gallery-item" data-full="img/galerie/09.jpg" data-alt="Bistrot Perla'Bul"><img src="img/galerie/09.jpg" alt="Bistrot Perla'Bul" loading="lazy"></div>
+  <div class="gallery-item" data-full="img/galerie/10.jpg" data-alt="Bistrot Perla'Bul"><img src="img/galerie/10.jpg" alt="Bistrot Perla'Bul" loading="lazy"></div>
+  <div class="gallery-item" data-full="img/galerie/11.jpg" data-alt="Bistrot Perla'Bul"><img src="img/galerie/11.jpg" alt="Bistrot Perla'Bul" loading="lazy"></div>
+  <div class="gallery-item" data-full="img/galerie/12.jpg" data-alt="Bistrot Perla'Bul"><img src="img/galerie/12.jpg" alt="Bistrot Perla'Bul" loading="lazy"></div>
+</div>
+
+  </main>
+
+  
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <span class="close" id="closeLightbox">&times;</span>
+    <img src="" alt="" id="lightboxImg">
+    <div class="nav-lightbox">
+      <button id="prevLightbox" aria-label="Photo précédente">&#10094;</button>
+      <button id="nextLightbox" aria-label="Photo suivante">&#10095;</button>
+    </div>
+  </div>
+
+  <footer>
+    
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-main serif" style="font-style:italic;color:#fff;">Le Rétro</span>
+        <span class="logo-sub">Néo-Bistrot Lillois</span>
+        <p>12 rue du Vieux-Marché, 59000 Lille</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Bistrot Le Rétro</span></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    const items = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    let index = 0;
+
+    function showImage(i) {
+      const item = items[i];
+      lightboxImg.src = item.dataset.full;
+      lightboxImg.alt = item.dataset.alt;
+      index = i;
+    }
+
+    items.forEach((item, i) => {
+      item.addEventListener('click', () => {
+        showImage(i);
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    document.getElementById('closeLightbox').addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+    });
+
+    document.getElementById('prevLightbox').addEventListener('click', () => {
+      index = (index - 1 + items.length) % items.length;
+      showImage(index);
+    });
+
+    document.getElementById('nextLightbox').addEventListener('click', () => {
+      index = (index + 1) % items.length;
+      showImage(index);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+      }
+    });
+  </script>
+</body>
+</html>
