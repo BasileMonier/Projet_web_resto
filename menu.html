@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Le Rétro – La Carte</title>
+  <title>Perla'Bul– La Carte</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  
 </head>
 <body>
   <nav id="navbar">
     <a href="index.html" class="nav-logo">
-      <span class="logo-main">Le Rétro</span>
-      <span class="logo-sub">Néo-Bistrot Lillois</span>
+      <span class="logo-main">Perla'Bul</span>
+      <span class="logo-sub">Bistrot franco-italiano</span>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li>
@@ -61,8 +60,8 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <span class="logo-main serif" style="font-style:italic;color:#fff;">Le Rétro</span>
-        <span class="logo-sub">Néo-Bistrot Lillois</span>
-        <p>12 rue du Vieux-Marché, 59000 Lille</p>
+        <span class="logo-sub">Bistrot franco-italiano</span>
+        <p>28 rue du Vieux-père, 59000 Lille</p>
       </div>
       <div>
         <p class="footer-title">Horaires</p>
@@ -79,7 +78,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Bistrot Le Rétro</span>
+      <span>© 2026 Bistrot le Perla'Bul</span>
     </div>
   </footer>
 
@@ -87,12 +86,12 @@
   <script>
     // Données (20 plats) – séparation données / affichage
     const plats = [
-      { nom: "Velouté de potimarron", desc: "Crème onctueuse, éclats de noisettes", prix: 8, cat: "entrée", tags: ["végé", "sans gluten"] },
-      { nom: "Tartare de saumon", desc: "Saumon frais, avocat, citron vert", prix: 12, cat: "entrée", tags: ["sans gluten"] },
-      { nom: "Salade de chèvre chaud", desc: "Mesclun, toasts de chèvre, miel", prix: 10, cat: "entrée", tags: ["végé"] },
-      { nom: "Œuf mimosa rétro", desc: "Œufs mimosa, mayonnaise maison", prix: 7, cat: "entrée", tags: ["végé", "sans gluten"] },
-      { nom: "Carpaccio de betterave", desc: "Betterave, roquette, parmesan", prix: 9, cat: "entrée", tags: ["végé", "sans gluten"] },
-      { nom: "Filet de bœuf rôti", desc: "Légumes racines glacés, sauce au poivre", prix: 22, cat: "plat", tags: [] },
+      { nom: "Velouté de potimarron", desc: "Crème onctueuse, éclats de noisettes", prix: 15, cat: "entrée", tags: ["végé", "sans gluten"] },
+      { nom: "Tartare de saumon", desc: "Saumon frais, avocat, citron vert", prix: 20, cat: "entrée", tags: ["sans gluten"] },
+      { nom: "Salade de chèvre chaud", desc: "Mesclun, toasts de chèvre, miel", prix: 14, cat: "entrée", tags: ["végé"] },
+      { nom: "Oeuf mimosa rétro", desc: "Œufs mimosa, mayonnaise maison", prix: 7, cat: "entrée", tags: ["végé", "sans gluten"] },
+      { nom: "Carpaccio de betterave", desc: "Betterave, roquette, parmesan", prix: 10, cat: "entrée", tags: ["végé", "sans gluten"] },
+      { nom: "Suprême de volaille doré", desc: "Purée de patate douce, jus réduit aux herbes", prix: 22, cat: "plat", tags: [] },
       { nom: "Risotto aux cèpes", desc: "Risotto crémeux, champignons des bois", prix: 18, cat: "plat", tags: ["végé"] },
       { nom: "Dos de cabillaud", desc: "Écrasé de pommes de terre, beurre blanc", prix: 20, cat: "plat", tags: ["sans gluten"] },
       { nom: "Burger végétarien", desc: "Steak de lentilles, légumes grillés", prix: 16, cat: "plat", tags: ["végé"] },
@@ -104,7 +103,7 @@
       { nom: "Mousse au chocolat noir", desc: "Chocolat 70%, éclats de fève de cacao", prix: 9, cat: "dessert", tags: ["végé", "sans gluten"] },
       { nom: "Crème brûlée", desc: "Vanille de Madagascar, cassonade caramélisée", prix: 8, cat: "dessert", tags: ["végé"] },
       { nom: "Salade de fruits frais", desc: "Fruits de saison, sirop léger", prix: 7, cat: "dessert", tags: ["végé", "sans gluten"] },
-      { nom: "Café Gourmand", desc: "Expresso et mini desserts", prix: 6, cat: "boisson", tags: [] },
+      { nom: "Café Gourmand", desc: "Expresso et mini desserts", prix: 8, cat: "boisson", tags: [] },
       { nom: "Thé glacé maison", desc: "Infusion de fruits rouges, menthe", prix: 5, cat: "boisson", tags: ["végé", "sans gluten"] },
       { nom: "Smoothie vert", desc: "Épinard, pomme, gingembre", prix: 6, cat: "boisson", tags: ["végé", "sans gluten"] }
     ];
@@ -131,9 +130,9 @@
         if (p.tags.includes('végé')) badges += '<span class="plat-badge">Végé</span>';
         if (p.tags.includes('sans gluten')) badges += '<span class="plat-badge">Sans gluten</span>';
         card.innerHTML = `
-            <div class="plat-img">
-                <img src="img/menu/${p.nom.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}.jpg" alt="${p.nom}" loading="lazy" onerror="this.src='img/menu/placeholder.jpg'" />
-        </div>
+             <div class="plat-img">
+                 <img src="img/menu/${p.nom.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}.jpg" alt="${p.nom}" loading="lazy" onerror="this.src='img/menu/placeholder.jpg'" />
+             </div>
           <div class="plat-body">
             <h3 class="plat-name">${p.nom}</h3>
             <p class="plat-desc">${p.desc}</p>
