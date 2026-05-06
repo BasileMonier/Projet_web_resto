@@ -1,195 +1,173 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu — Bistrot Le Rétro</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Rétro – La Carte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-main">Le Rétro</span>
+      <span class="logo-sub">Néo-Bistrot Lillois</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="menu.html">La Carte</a></li>
+      <li><a href="galerie.html">Galerie</a></li>
+      <li><a href="reservation.html">Réservation</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+    <button id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+  <nav id="mobile-menu">
+    <a href="index.html">Accueil</a>
+    <a href="menu.html">La Carte</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="reservation.html">Réservation</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-  <header>
-    <nav>
-      <div class="logo">Bistrot Le Rétro</div>
-      <button class="burger" id="burger">☰</button>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="menu.html" class="active">Menu</a></li>
-        <li><a href="galerie.html">Galerie</a></li>
-        <li><a href="reservation.html">Réservation</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section class="menu-hero">
-      <h1>Notre Carte</h1>
-      <p>Des produits frais, locaux, de saison.</p>
-    </section>
+  <main class="menu-container">
+    <h1 class="section-title" style="text-align:center; margin-bottom:1.5rem;">Notre carte</h1>
 
     <!-- FILTRES -->
-    <section class="filtres">
-      <div class="filtres-categories">
-        <button class="filtre-btn actif" data-categorie="tout">Tout</button>
-        <button class="filtre-btn" data-categorie="entree">Entrées</button>
-        <button class="filtre-btn" data-categorie="plat">Plats</button>
-        <button class="filtre-btn" data-categorie="dessert">Desserts</button>
-        <button class="filtre-btn" data-categorie="boisson">Boissons</button>
+    <div class="filters">
+      <div>
+        <button class="filter-btn active" data-categorie="tout">Tout</button>
+        <button class="filter-btn" data-categorie="entrée">Entrées</button>
+        <button class="filter-btn" data-categorie="plat">Plats</button>
+        <button class="filter-btn" data-categorie="dessert">Desserts</button>
+        <button class="filter-btn" data-categorie="boisson">Boissons</button>
       </div>
-      <div class="filtres-tags">
-        <label>
-          <input type="checkbox" id="filtre-vege">  Végétarien
-        </label>
-        <label>
-          <input type="checkbox" id="filtre-gluten">  Sans gluten
-        </label>
+      <div class="checkboxes">
+        <label><input type="checkbox" id="filterVege"> Végé</label>
+        <label><input type="checkbox" id="filterSansGluten"> Sans gluten</label>
       </div>
-      <p class="compteur" id="compteur">20 plats correspondent à votre sélection</p>
-    </section>
+    </div>
 
-    <!-- LISTE DES PLATS -->
-    <section class="liste-plats" id="liste-plats">
+    <p class="counter" id="compteur"></p>
 
-      <!-- ENTRÉES -->
-      <article class="plat" data-categorie="entree" data-vege="true" data-gluten="false">
-        <h3>Soupe à l'oignon <span class="tag vege"></span></h3>
-        <p>Bouillon maison, oignons caramélisés, croûton gratiné au comté.</p>
-        <p class="prix">9,50 €</p>
-      </article>
-
-      <article class="plat" data-categorie="entree" data-vege="false" data-gluten="true">
-        <h3>Tartare de saumon <span class="tag gluten"></span></h3>
-        <p>Saumon frais, avocat, citron vert, coriandre.</p>
-        <p class="prix">13,00 €</p>
-      </article>
-
-      <article class="plat" data-categorie="entree" data-vege="true" data-gluten="true">
-        <h3>Salade de chèvre chaud <span class="tag vege"></span><span class="tag gluten"></span></h3>
-        <p>Mesclun, tomates cerises, noix, miel, chèvre grillé.</p>
-        <p class="prix">11,00 €</p>
-      </article>
-
-      <article class="plat" data-categorie="entree" data-vege="false" data-gluten="false">
-        <h3>Terrine de campagne</h3>
-        <p>Terrine maison, cornichons, pain grillé au levain.</p>
-        <p class="prix">10,00 €</p>
-      </article>
-
-      <article class="plat" data-categorie="entree" data-vege="false" data-gluten="true">
-        <h3>Carpaccio de bœuf <span class="tag gluten"></span></h3>
-        <p>Bœuf tranché fin, parmesan, roquette, huile d'olive, câpres.</p>
-        <p class="prix">14,00 €</p>
-      </article>
-
-      <!-- PLATS -->
-      <article class="plat" data-categorie="plat" data-vege="false" data-gluten="false">
-        <h3>Entrecôte frites</h3>
-        <p>Entrecôte Black Angus 300g, frites maison, sauce au poivre.</p>
-        <p class="prix">26,00 €</p>
-      </article>
-
-      <article class="plat" data-categorie="plat" data-vege="false" data-gluten="true">
-        <h3>Dos de cabillaud <span class="tag gluten"></span></h3>
-        <p>Cabillaud rôti, écrasé de pommes de terre, beurre blanc.</p>
-        <p class="prix">22,00 €</p>
-      </article>
-
-      <article class="plat" data-categorie="plat" data-vege="true" data-gluten="false">
-        <h3>Risotto aux champignons <span class="tag vege"></span></h3>
-        <p>Risotto crémeux, champignons de Paris, cèpes, parmesan.</p>
-        <p class="prix">18,00 €</p>
-      </article>
-
-      <article class="plat" data-categorie="plat" data-vege="false" data-gluten="false">
-        <h3>Confit de canard</h3>
-        <p>Cuisse de canard confite, sarladaises, salade verte.</p>
-        <p class="prix">24,00 €</p>
-      </article>
-
-      <article class="plat" data-categorie="plat" data-vege="false" data-gluten="false">
-        <h3>Magret de canard</h3>
-        <p>Magret rosé, sauce aux cerises, gratin dauphinois.</p>
-        <p class="prix">25,00 €</p>
-      </article>
-
-      <article class="plat" data-categorie="plat" data-vege="true" data-gluten="true">
-        <h3>Curry de légumes <span class="tag vege"></span><span class="tag gluten">🌾</span></h3>
-        <p>Légumes de saison, lait de coco, riz basmati, coriandre.</p>
-        <p class="prix">16,00 €</p>
-      </article>
-
-      <article class="plat" data-categorie="plat" data-vege="false" data-gluten="false">
-        <h3>Steak haché maison</h3>
-        <p>Haché 180g, frites maison, œuf à cheval, ketchup maison.</p>
-        <p class="prix">17,00 €</p>
-      </article>
-
-      <article class="plat" data-categorie="plat" data-vege="false" data-gluten="false">
-        <h3>Poulet rôti du dimanche</h3>
-        <p>Poulet fermier, jus de rôti, haricots verts, pommes grenaille.</p>
-        <p class="prix">20,00 €</p>
-      </article>
-
-      <article class="plat" data-categorie="plat" data-vege="false" data-gluten="true">
-        <h3>Pavé de saumon <span class="tag gluten"></span></h3>
-        <p>Saumon Label Rouge, quinoa, épinards sautés, citron.</p>
-        <p class="prix">21,00 €</p>
-      </article>
-
-      <!-- DESSERTS -->
-      <article class="plat" data-categorie="dessert" data-vege="true" data-gluten="false">
-        <h3>Crème brûlée <span class="tag vege"></span></h3>
-        <p>Crème vanillée, caramel craquant à la cassonade.</p>
-        <p class="prix">8,00 €</p>
-      </article>
-
-      <article class="plat" data-categorie="dessert" data-vege="true" data-gluten="false">
-        <h3>Mousse au chocolat <span class="tag vege"></span></h3>
-        <p>Chocolat noir 70%, chantilly maison.</p>
-        <p class="prix">7,50 €</p>
-      </article>
-
-      <article class="plat" data-categorie="dessert" data-vege="true" data-gluten="false">
-        <h3>Tarte Tatin <span class="tag vege"></span></h3>
-        <p>Pommes caramélisées, pâte feuilletée, crème fraîche.</p>
-        <p class="prix">9,00 €</p>
-      </article>
-
-      <article class="plat" data-categorie="dessert" data-vege="true" data-gluten="false">
-        <h3>Île flottante <span class="tag vege"></span></h3>
-        <p>Blancs en neige, crème anglaise, caramel, pralin.</p>
-        <p class="prix">7,00 €</p>
-      </article>
-
-      <!-- BOISSONS -->
-      <article class="plat" data-categorie="boisson" data-vege="true" data-gluten="true">
-        <h3>Eau minérale <span class="tag vege"></span><span class="tag gluten">🌾</span></h3>
-        <p>Plate ou gazeuse, 50cl.</p>
-        <p class="prix">2,50 €</p>
-      </article>
-
-      <article class="plat" data-categorie="boisson" data-vege="true" data-gluten="true">
-        <h3>Café / Thé <span class="tag vege"></span><span class="tag gluten">🌾</span></h3>
-        <p>Café expresso, noisette, ou thé au choix.</p>
-        <p class="prix">3,00 €</p>
-      </article>
-
-      <article class="plat" data-categorie="boisson" data-vege="true" data-gluten="true">
-        <h3>Jus de fruits frais <span class="tag vege"></span><span class="tag gluten">🌾</span></h3>
-        <p>Orange, citron ou ananas, pressé à la commande.</p>
-        <p class="prix">4,00 €</p>
-      </article>
-
-    </section>
+    <div class="menu-grid" id="platsContainer"></div>
   </main>
 
   <footer>
-    <p>Lundi fermé — Mar-Dim : 12h-14h30 / 19h-22h30</p>
-    <p>12 rue du Général de Gaulle, Lille — 03 20 00 00 00</p>
-    <p>© 2026 Bistrot Le Rétro</p>
+    <!-- footer identique à l'index, simplifié pour la démonstration -->
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-main serif" style="font-style:italic;color:#fff;">Le Rétro</span>
+        <span class="logo-sub">Néo-Bistrot Lillois</span>
+        <p>12 rue du Vieux-Marché, 59000 Lille</p>
+      </div>
+      <div>
+        <p class="footer-title">Horaires</p>
+        <ul class="footer-hours">
+          <li><span>Mardi – Samedi</span> 12h–14h30 · 19h–22h30</li>
+          <li>Fermé le lundi</li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">Contact</p>
+        <ul class="footer-contact">
+          <li><a href="tel:+33320123456">03 20 12 34 56</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Bistrot Le Rétro</span>
+    </div>
   </footer>
 
-  <script src="js/menu.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Données (20 plats) – séparation données / affichage
+    const plats = [
+      { nom: "Velouté de potimarron", desc: "Crème onctueuse, éclats de noisettes", prix: 15, cat: "entrée", tags: ["végé", "sans gluten"] },
+      { nom: "Tartare de saumon", desc: "Saumon frais, avocat, citron vert", prix: 20, cat: "entrée", tags: ["sans gluten"] },
+      { nom: "Salade de chèvre chaud", desc: "Mesclun, toasts de chèvre, miel", prix: 14, cat: "entrée", tags: ["végé"] },
+      { nom: "Oeuf mimosa rétro", desc: "Œufs mimosa, mayonnaise maison", prix: 7, cat: "entrée", tags: ["végé", "sans gluten"] },
+      { nom: "Carpaccio de betterave", desc: "Betterave, roquette, parmesan", prix: 10, cat: "entrée", tags: ["végé", "sans gluten"] },
+      { nom: "Suprême de volaille doré", desc: "Purée de patate douce, jus réduit aux herbes", prix: 22, cat: "plat", tags: [] },
+      { nom: "Risotto aux cèpes", desc: "Risotto crémeux, champignons des bois", prix: 18, cat: "plat", tags: ["végé"] },
+      { nom: "Dos de cabillaud", desc: "Écrasé de pommes de terre, beurre blanc", prix: 20, cat: "plat", tags: ["sans gluten"] },
+      { nom: "Burger végétarien", desc: "Steak de lentilles, légumes grillés", prix: 16, cat: "plat", tags: ["végé"] },
+      { nom: "Poulet rôti aux herbes", desc: "Pommes grenailles, jus corsé", prix: 19, cat: "plat", tags: [] },
+      { nom: "Pâtes fraîches au pesto", desc: "Tagliatelles, pesto basilic, pignons", prix: 14, cat: "plat", tags: ["végé"] },
+      { nom: "Magret de canard", desc: "Purée de patate douce, sauce miel-orange", prix: 24, cat: "plat", tags: [] },
+      { nom: "Curry de légumes", desc: "Lait de coco, riz basmati, coriandre", prix: 15, cat: "plat", tags: ["végé", "sans gluten"] },
+      { nom: "Tarte tatin", desc: "Pommes caramélisées, glace vanille", prix: 10, cat: "dessert", tags: ["végé"] },
+      { nom: "Mousse au chocolat noir", desc: "Chocolat 70%, éclats de fève de cacao", prix: 9, cat: "dessert", tags: ["végé", "sans gluten"] },
+      { nom: "Crème brûlée", desc: "Vanille de Madagascar, cassonade caramélisée", prix: 8, cat: "dessert", tags: ["végé"] },
+      { nom: "Salade de fruits frais", desc: "Fruits de saison, sirop léger", prix: 7, cat: "dessert", tags: ["végé", "sans gluten"] },
+      { nom: "Café Gourmand", desc: "Expresso et mini desserts", prix: 8, cat: "boisson", tags: [] },
+      { nom: "Thé glacé maison", desc: "Infusion de fruits rouges, menthe", prix: 5, cat: "boisson", tags: ["végé", "sans gluten"] },
+      { nom: "Smoothie vert", desc: "Épinard, pomme, gingembre", prix: 6, cat: "boisson", tags: ["végé", "sans gluten"] }
+    ];
+
+    let catActive = 'tout';
+    const container = document.getElementById('platsContainer');
+    const compteur   = document.getElementById('compteur');
+
+    function filtrerPlats(liste, cat, vege, sansGluten) {
+      return liste.filter(p => 
+        (cat === 'tout' || p.cat === cat) &&
+        (!vege || p.tags.includes('végé')) &&
+        (!sansGluten || p.tags.includes('sans gluten'))
+      );
+    }
+
+    function afficherPlats(liste) {
+      container.innerHTML = '';
+      liste.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'plat-card';
+        // Génération des badges de tags
+        let badges = '';
+        if (p.tags.includes('végé')) badges += '<span class="plat-badge">Végé</span>';
+        if (p.tags.includes('sans gluten')) badges += '<span class="plat-badge">Sans gluten</span>';
+        card.innerHTML = `
+             <div class="plat-img">
+                 <img src="img/menu/${p.nom.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}.jpg" alt="${p.nom}" loading="lazy" onerror="this.src='img/menu/placeholder.jpg'" />
+             </div>
+          <div class="plat-body">
+            <h3 class="plat-name">${p.nom}</h3>
+            <p class="plat-desc">${p.desc}</p>
+            <div class="plat-footer">
+              <span class="plat-price">${p.prix} €</span>
+              <div>${badges}</div>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+      compteur.textContent = `${liste.length} plat(s) correspondent à votre sélection`;
+    }
+
+    function appliquerFiltres() {
+      const vege = document.getElementById('filterVege').checked;
+      const sansGluten = document.getElementById('filterSansGluten').checked;
+      const resultats = filtrerPlats(plats, catActive, vege, sansGluten);
+      afficherPlats(resultats);
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        catActive = this.dataset.categorie;
+        appliquerFiltres();
+      });
+    });
+
+    document.getElementById('filterVege').addEventListener('change', appliquerFiltres);
+    document.getElementById('filterSansGluten').addEventListener('change', appliquerFiltres);
+
+    // Affichage initial
+    afficherPlats(plats);
+  </script>
 </body>
 </html>
