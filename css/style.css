@@ -184,16 +184,6 @@ h1, h2, h3, h4 {
   transition: transform .3s, opacity .3s;
 }
 
-#burger.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-#burger.open span:nth-child(2) {
-  opacity: 0;
-}
-#burger.open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
 
 #mobile-menu {
   display: none;
