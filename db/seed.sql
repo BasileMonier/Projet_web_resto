@@ -10,7 +10,7 @@ INSERT INTO plats (nom, description, prix, categorie, vegetarien, sans_gluten) V
 -- Plats (8)
 ('Filet de bœuf rôti', 'Légumes racines glacés, sauce au poivre noir', 22.00, 'plat', FALSE, FALSE),
 ('Risotto aux cèpes', 'Risotto crémeux, champignons des bois, copeaux de parmesan', 18.00, 'plat', TRUE, FALSE),
-('Dos de cabillaud', 'Écrasé de pommes de terre à l\'huile d\'olive, beurre blanc', 20.00, 'plat', FALSE, TRUE),
+('Dos de cabillaud', 'Écrasé de pommes de terre à l huile d olive, beurre blanc', 20.00, 'plat', FALSE, TRUE),
 ('Burger végétarien', 'Steak de lentilles, légumes grillés, frites maison', 16.00, 'plat', TRUE, FALSE),
 ('Poulet rôti aux herbes', 'Pommes grenailles, jus corsé aux herbes de Provence', 19.00, 'plat', FALSE, FALSE),
 ('Pâtes fraîches au pesto', 'Tagliatelles, pesto basilic, pignons de pin, tomates cerises', 14.00, 'plat', TRUE, FALSE),

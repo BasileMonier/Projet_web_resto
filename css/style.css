@@ -1,16 +1,16 @@
 :root {
-  --cream:      #f5e6d3;      /* Fond principal clair et doux */
-  --dark:       #2a1a1a;      /* Texte foncé, fond sombre */
-  --wine:       #722f37;      /* Bordeaux profond (identité) */
-  --wine-light: #8f3a44;      /* Variation plus claire pour hover */
-  --sage:       #7a9471;      /* Vert sauge (accent) */
-  --sage-light: #94ad8b;      /* Variation plus claire */
-  --warm:       #ede0ce;      /* Fond légèrement plus chaud */
-  --muted:      #7a6a58;      /* Texte secondaire */
-  --card-bg:    #FFFFFF;      /* Fond des cartes */
+  --cream:      #f5e6d3;      
+  --dark:       #2a1a1a;     
+  --wine:       #722f37;     
+  --wine-light: #8f3a44;     
+  --sage:       #7a9471;      
+  --sage-light: #94ad8b;      
+  --warm:       #ede0ce;      
+  --muted:      #7a6a58;      
+  --card-bg:    #FFFFFF;      
   --radius:     12px;
   --shadow:     0 8px 32px rgba(42, 26, 26, 0.10);
-  --nav-h:      72px;         /* Hauteur de la navbar */
+  --nav-h:      72px;        
   --transition: .3s ease;
 }
 
@@ -380,7 +380,7 @@ section {
 .histoire-img:hover img {
   transform: scale(1.04);
 }
-/* Bordures décoratives */
+
 .histoire-img::before {
   content: '';
   position: absolute;
