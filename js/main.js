@@ -1,6 +1,6 @@
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
-  if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 25);
+  if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 5);
 });
 
 const burger = document.getElementById('burger');
