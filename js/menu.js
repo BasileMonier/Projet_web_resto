@@ -1,5 +1,4 @@
 
-    // Données (20 plats) – séparation données / affichage
     const plats = [
       { nom: "Velouté de potimarron", desc: "Crème onctueuse, éclats de noisettes", prix: 15, cat: "entrée", tags: ["végé", "sans gluten"] },
       { nom: "Tartare de saumon", desc: "Saumon frais, avocat, citron vert", prix: 20, cat: "entrée", tags: ["sans gluten"] },

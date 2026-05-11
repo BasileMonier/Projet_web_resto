@@ -766,7 +766,7 @@ section {
 
 
 .form-container {
-  max-width: 650px;
+  max-width: 900px;
   margin: 2rem auto;
   padding: 2rem;
   background: var(--card-bg);
@@ -989,5 +989,22 @@ footer {
   }
   .checkboxes {
     margin-left: 0;
+  }
+  .map-container{
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) {
+  .map-container {
+    width: 90vh;
+    max-width: 90vw;
+    margin:2rem auto 0;
+    margin-top: 0;
+    margin-bottom: 5%;
+  }
+  
+  .map-container iframe {
+    height: 300px;
   }
 }
